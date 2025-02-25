@@ -1,0 +1,207 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+:root {
+  --brown: #786450;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  -webkit-box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #eebe6c, #ca7c4e);
+  color: var(--brown);
+  font-weight: 300;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 320px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+}
+
+.info {
+  padding-top: 6px;
+}
+.info .img-wrap {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+}
+.info .img-wrap:before, .info .img-wrap:after {
+  content: "";
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--brown);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  -webkit-transition: rotate 1.5s ease-in-out;
+  transition: rotate 1.5s ease-in-out;
+}
+.info .img-wrap:before {
+  width: 76px;
+  height: 76px;
+  border-left-color: transparent;
+}
+.info .img-wrap:after {
+  width: 82px;
+  height: 82px;
+  border-right-color: transparent;
+}
+.info .img-wrap img {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.info .img-wrap:hover:before {
+  rotate: 360deg;
+}
+.info .img-wrap:hover:after {
+  rotate: -360deg;
+}
+.info .content {
+  text-align: center;
+  margin-top: 20px;
+  line-height: 1;
+}
+.info .content .name {
+  font-size: 15px;
+  font-weight: 600;
+}
+.info .content .job {
+  font-size: 11px;
+}
+
+.btn-group {
+  margin: 33px 0 10px;
+}
+.btn-group .btn {
+  display: block;
+  border-radius: 15px;
+  border: 1px solid var(--brown);
+  color: var(--brown);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 30px;
+  width: 120px;
+  height: 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.btn-group .btn:not(:last-child) {
+  margin-bottom: 10px;
+}
+.btn-group .btn:hover {
+  background-color: var(--brown);
+  color: #fff;
+}
+
+.stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  row-gap: 1px;
+  width: 120px;
+}
+
+.stat {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #f5e8df;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+}
+.stat .value {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.stat .label {
+  font-size: 0.6875rem;
+}
+.stat:hover {
+  background-color: #e1cfc2;
+}

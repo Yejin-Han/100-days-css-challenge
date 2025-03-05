@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 7</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="center">
+      <div class="panel">
+        <div class="panel__header">
+          <div class="btn-menu" role="button" aria-pressed="false" aria-label="Menu">
+            <div class="btn-menu__bar btn-menu__bar--top"></div>
+            <div class="btn-menu__circle"></div>
+            <div class="btn-menu__bar btn-menu__bar--bottom"></div>
+          </div>
+          <h1 class="title">Notifications</h1>
+          <div class="search-wrap">
+            <input type="text" class="search-wrap__input" placeholder="Search...">
+            <button type="button" class="search-wrap__btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </div>
+        <div class="panel__body">
+          <div class="tl-line"></div>
+          <div class="notification">
+            <div class="notification__content">
+              <span class="time">9:24 AM</span>
+              <p class="text"><strong>John Walker</strong> posted a photo on your wall.</p>
+            </div>
+          </div>
+          <div class="notification">
+            <div class="notification__content">
+              <span class="time">8:19 AM</span>
+              <p class="text"><strong>Alice Parker</strong> commented your last post.</p>
+            </div>
+          </div>
+          <div class="notification">
+            <div class="notification__content">
+              <span class="time">Yesterday</span>
+              <p class="text"><strong>Luke wayne</strong> added you as friend.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="menu">
+        <ul class="menu__list">
+          <li class="menu__item"><i class="fa-solid fa-gauge menu__icon"></i>Dashboard</li>
+          <li class="menu__item"><i class="fa-solid fa-user menu__icon"></i>Profile</li>
+          <li class="menu__item"><i class="fa-solid fa-bell menu__icon"></i>Notifications</li>
+          <li class="menu__item"><i class="fa-solid fa-comments menu__icon"></i>Messages</li>
+          <li class="menu__item"><i class="fa-solid fa-gear menu__icon"></i>Settings</li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

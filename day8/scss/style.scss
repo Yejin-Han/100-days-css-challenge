@@ -1,0 +1,108 @@
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #fff;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  border-radius: 5px;
+  background-color: #000;
+  // 가장 중요한 부분! contrast(25)는 흰색과 검정색의 대비를 25배 증가시킴
+  // blur로 퍼진 부분까지 포함해서 대비가 높아져서 경계가 문드러진 채로 합쳐진 것처럼 보임
+  filter: contrast(25);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: #fff;
+  width: 90px; height: 90px;
+  filter: blur(15px);
+}
+
+.blob {
+  width: 50px; height: 50px;
+  position: absolute;
+  top: 20px; left: 20px;
+
+  &:after {
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+    width: 50px; height: 50px;
+    position: absolute;
+    filter: blur(5px);
+  }
+}
+
+@for $i from 1 through 8 {
+  .blob-#{$i} {
+    // 각 blob마다 랜덤한 각도로 초기 배치
+    transform: rotate((random(300) + deg));
+
+    // 가상요소에서 animation을 주는 이유는,
+    // 시작 rotate 각도가 다른 모든 블롭들이 keyframe 하나로 동작하기 위해
+    // 미리 본체에서 각도를 돌려놓고 가상요소에 애니메이션을 주는 것
+    &:after {
+      // 숫자가 커질수록 회전 반경이 작아짐
+      transform-origin: (40 - $i * 3) + px (40 - $i * 3) + px;
+      // 2.5초에서 시작해서 점점 느려짐
+      animation: rotate (2.5 + $i / 5) + s ease-in-out ($i / 5) + s infinite;
+    }
+  }
+}
+
+
+.sparkle {
+  position: absolute;
+  top: 38px; left: 38px;
+
+  &:after {
+    content: '';
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    filter: blur(3px);
+  }
+}
+
+@for $i from 1 through 10 {
+  .sparkle-#{$i} {
+    width: (7 + $i) + px; height: (7 + $i) + px;
+    transform: rotate((random(300) + deg));
+
+    &:after {
+      width: (7 + $i) + px; height: (7 + $i) + px;
+      // blob보다 더 넓은 반경으로 회전
+      transform-origin: (60 - $i * 2) + px (60 - $i * 2) + px;
+      // blob보다 좀 더 긴 주기로 회전
+      animation: rotate (3.5 + $i / 5) + s ease-in-out ($i / 5) + s infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(360deg) translate3d(0, 0, 0);
+  }
+}

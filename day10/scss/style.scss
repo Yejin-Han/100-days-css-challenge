@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+
+$bg-timer: #242424;
+$bd-timer: #3a3a3a;
+$bg-red: #f85b5b;
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  border-radius: 5px;
+  background-color: #4c4c4c;
+  font-weight: 400;
+}
+
+.timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  background-color: $bg-timer;
+  border: 7px solid $bd-timer;
+  border-radius: 50%;
+  width: 212px; height: 212px;
+}
+
+.progress {
+  position: absolute;
+  width: 202px;
+  height: 202px;
+  border-radius: 50%;
+  top: 5px; left: 5px;
+
+  circle {
+    stroke: #f85b5b;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 625;
+    animation: spinner 60s linear infinite;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+  }
+}
+
+.points {
+  position: absolute;
+  inset: 0;
+}
+.point {
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  width: 2px; height: 2px;
+  transform-origin: 50% 50%;
+  position: absolute;
+  left: 50%; top: 50%;
+
+  @for $i from 1 through 60 {
+    &:nth-child(#{$i}) {
+      transform: translate(-50%, -50%) rotate(#{calc(360 / 60 * $i)}deg) translateY(94px); // 94px는 원의 반지름인 106px에서 progress bar가 지나갈 수 있게 조금 안으로 들어오게 하기 위해 조정한 값!
+    }
+  }
+}
+
+.content {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+}
+.date-info {
+  font-size: 0.75rem;
+  span:not(:last-child) {
+    margin-right: 1px;
+  }
+}
+.time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0.25rem 0;
+}
+.health {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+
+  .beat {
+    margin-right: 0.8rem;
+  }
+  .ico-heart {
+    color: $bg-red;
+    font-size: 0.625rem;
+    margin-right: 0.25rem;
+    margin-bottom: 1px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes opacityAnimation {
+  0% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    stroke-dashoffset: 625;
+    transform: rotate(-90deg) scaleY(1);
+  }
+  50% {
+    stroke-dashoffset: 0;
+    transform: rotate(-90deg) scaleY(1);
+  }
+  50.00001% {
+    transform: rotate(-90deg) scaleY(-1);
+  }
+  100% {
+    stroke-dashoffset: 625;
+    transform: rotate(-90deg) scaleY(-1);
+  }
+}

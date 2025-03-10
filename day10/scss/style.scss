@@ -67,7 +67,7 @@ $bg-red: #f85b5b;
 
   @for $i from 1 through 60 {
     &:nth-child(#{$i}) {
-      transform: translate(-50%, -50%) rotate(#{calc(360 / 60 * $i)}deg) translateY(94px); // 94px는 원의 반지름인 106px에서 progress bar가 지나갈 수 있게 조금 안으로 들어오게 하기 위해 조정한 값!
+      transform: translate(-50%, -50%) rotate(#{360 / 60 * $i}deg) translateY(94px); // 94px는 원의 반지름인 106px에서 progress bar가 지나갈 수 있게 조금 안으로 들어오게 하기 위해 조정한 값!
     }
   }
 }

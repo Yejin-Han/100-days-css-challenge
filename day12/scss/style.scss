@@ -1,0 +1,145 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic);
+
+html, body {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  border-radius: 5px;
+  background-color: #4cb6de;
+  color: #fff;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.quote {
+  &-wrap {
+    position: relative;
+    padding: 0 3rem;
+
+    &:before {
+      content: '„';
+      color: #6ac2e3;
+      display: block;
+      font-size: 25rem;
+      font-family: Arial;
+      line-height: 0;
+      position: absolute;
+      left: 0.85rem; top: -6.25rem;
+      z-index: -1;
+    }
+  }
+  &-text {
+    font-size: 2.4rem;
+    margin-top: 2rem;
+  }
+  &-author {
+    display: block;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 2rem;
+  }
+}
+.tooltip {
+  display: inline-block;
+  position: relative;
+
+  .emphasis {
+    background-color: #286f8a;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 0 0.8rem 0.5rem 0.8rem;
+
+    &:hover .tooltip-content,
+    &:focus .tooltip-content {
+      opacity: 1;
+      transform: translate3d(-50%, 0, 0);
+      pointer-events: auto;
+    }
+  }
+
+  // content를 hover가 되는 tooltip 안에 넣어야 마우스를 content로 옮겨도 hover 상태가 유지되는 점 주의
+  &-content {
+    font-size: 1.6rem;
+    width: 30rem;
+    position: absolute;
+    left: 50%; bottom: 5rem;
+    opacity: 0;
+    transform: translate3d(-50%, -2rem, 0);
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+
+    // tooltip과 tooltip-content의 사이에 빈 공간으로 마우스가 움직였을 때 hover가 풀리는 것을 방지
+    &:before {
+      content: '';
+      width: 100%; height: 1.4rem;
+      position: absolute;
+      left: 0; bottom: -1.4rem;
+    }
+
+    &:after {
+      content: '';
+      border-top: 0.75rem solid #286f8a;
+      border-bottom: 0.75rem solid transparent;
+      border-left: 0.75rem solid transparent;
+      border-right: 0.75rem solid transparent;
+      display: block;
+      position: absolute;
+      left: 50%; bottom: -1.4rem;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-top {
+    background-color: #fff;
+    color: #286f8a;
+    padding: 0.8rem 1.7rem;
+
+    .ico-volume {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-left: 0.8rem;
+      transform: scale(1);
+      transition: transform 0.2s ease-out;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+  &-bot {
+    background-color: #286f8a;
+    padding: 1.3rem 1.7rem;
+  }
+}

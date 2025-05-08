@@ -1,0 +1,77 @@
+$c-green: #37d493;
+$c-grey: #444;
+
+html, body {
+  font-size: 62.5%;
+}
+
+.frame {
+  width: 40rem; height: 40rem;
+  position: absolute;
+  top: 50%; left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+	overflow: hidden;
+
+  background-color: #fff;
+  border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+}
+
+.box {
+  height: 50%;
+}
+.top {
+  background-color: $c-grey;
+}
+.bot {
+  background-color: $c-green;
+}
+
+.ellipse {
+  width: 105%; height: 100%;
+  position: absolute;
+  left: 0; top: 0;
+  margin-left: -2.5%;
+  transform-style: preserve-3d;
+  animation: elastic 5s ease-in-out infinite;
+
+  div {
+    backface-visibility: hidden;
+    border-radius: 50%;
+    position: absolute;
+    inset: 0;
+  }
+  .grey {
+    background-color: $c-grey;
+    z-index: 2;
+    transform: rotateX(0);
+  }
+  .green {
+    background-color: $c-green;
+    z-index: 1;
+    transform: rotateX(180deg);
+  }
+}
+
+
+@keyframes elastic {
+  0% { transform: rotateX(90deg); }
+  15% { transform: rotateX(150deg); }
+  20% { transform: rotateX(50deg); }
+  25% { transform: rotateX(120deg); }
+  30% { transform: rotateX(70deg); }
+  35% { transform: rotateX(100deg); }
+  40% { transform: rotateX(85deg); }
+  45% { transform: rotateX(95deg); }
+  50% { transform: rotateX(90deg); }
+
+  65% { transform: rotateX(30deg); }
+  70% { transform: rotateX(130deg); }
+  75% { transform: rotateX(60deg); }
+  80% { transform: rotateX(110deg); }
+  85% { transform: rotateX(80deg); }
+  90% { transform: rotateX(95deg); }
+  95% { transform: rotateX(85deg); }
+  100% { transform: rotateX(90deg); }
+}

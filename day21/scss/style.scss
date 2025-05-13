@@ -1,0 +1,84 @@
+$c-dark: #2c2e2e;
+$c-yellow: #f4d146;
+$r: 50;
+$speed: 0.7s;
+
+html, body {
+  font-size: 62.5%;
+}
+
+.frame {
+  width: 40rem; height: 40rem;
+  position: absolute;
+  top: 50%; left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+	overflow: hidden;
+  color: #333;
+
+  background-color: $c-dark;
+  border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+}
+
+.pacman {
+  width: ($r * 2) + px;
+  height: ($r * 2) + px;
+  position: absolute;
+  left: 50%; top: 50%;
+  z-index: 2;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.face {
+  width: 100%; height: 100%;
+  fill: none;
+  stroke: $c-yellow;
+  stroke-width: $r + px;
+  stroke-dasharray: $r * 3.14;
+  animation: face-animation $speed ease-in-out infinite;
+}
+
+.eye {
+  width: 12px; height: 12px;
+  position: absolute;
+  top: 15%; left: 55%;
+  fill: $c-dark;
+  animation: eye-animation $speed ease-in-out infinite;
+}
+
+.dots {
+  width: 50%; height: 14px;
+  position: absolute;
+  right: 0; top: 48.5%;
+  z-index: 1;
+
+  stroke: $c-yellow;
+  stroke-width: 14px;
+  stroke-linecap: round;
+  stroke-dashoffset: 14;
+  stroke-dasharray: 0 50;
+  animation: dots-animation $speed linear infinite;
+}
+
+
+@keyframes face-animation {
+  0%, 100% {
+    stroke-dashoffset: 0;
+    transform: rotate(0deg);
+  }
+  50% {
+    stroke-dashoffset: ($r * 3.14) / 4;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes eye-animation {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-6px, -3px, 0); }
+}
+
+@keyframes dots-animation {
+  0% { stroke-dashoffset: 14; }
+  100% { stroke-dashoffset: 64; }
+}

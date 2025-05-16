@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+html, body {
+  font-size: 62.5%;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.frame {
+  width: 40rem;
+  height: 40rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+  overflow: hidden;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #57d895;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.btn {
+  border: 2px solid #fff;
+  border-radius: 3rem;
+  cursor: pointer;
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 6rem;
+  width: 26rem;
+  height: 6rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  background-color: #37be77;
+}
+.btn img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  display: none;
+}
+
+.circle {
+  width: 6rem;
+  height: 6rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-dasharray: 182.12;
+  stroke-dashoffset: 182.12;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0) rotate(-90deg);
+          transform: translate3d(-50%, -50%, 0) rotate(-90deg);
+  pointer-events: none;
+}
+
+#ip-finish {
+  display: none;
+}
+#ip-finish:checked ~ .label-wrap .btn {
+  -webkit-animation: btn-shape-animation 0.5s both, btn-fill-animation 0.5s ease-out 1.5s forwards;
+          animation: btn-shape-animation 0.5s both, btn-fill-animation 0.5s ease-out 1.5s forwards;
+}
+#ip-finish:checked ~ .label-wrap .btn:hover {
+  background-color: transparent;
+}
+#ip-finish:checked ~ .label-wrap .btn span {
+  display: none;
+}
+#ip-finish:checked ~ .label-wrap .btn img {
+  display: block;
+  -webkit-animation: check-animation 0.5s ease-out 1.5s both;
+          animation: check-animation 0.5s ease-out 1.5s both;
+}
+#ip-finish:checked ~ .label-wrap .btn ~ .circle {
+  -webkit-animation: circle-animation 2s ease-out 0.5s both;
+          animation: circle-animation 2s ease-out 0.5s both;
+}
+
+@-webkit-keyframes btn-shape-animation {
+  0% {
+    border-color: #fff;
+    color: #fff;
+    width: 26rem;
+  }
+  100% {
+    border-color: #45b078;
+    border-radius: 50%;
+    width: 6rem;
+  }
+}
+
+@keyframes btn-shape-animation {
+  0% {
+    border-color: #fff;
+    color: #fff;
+    width: 26rem;
+  }
+  100% {
+    border-color: #45b078;
+    border-radius: 50%;
+    width: 6rem;
+  }
+}
+@-webkit-keyframes circle-animation {
+  0% {
+    stroke-dashoffset: 182.12;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 182.12;
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(1);
+            transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(1);
+    opacity: 1;
+  }
+  90%, 100% {
+    stroke-dasharray: 364.24;
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(2);
+            transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(2);
+    opacity: 0;
+  }
+}
+@keyframes circle-animation {
+  0% {
+    stroke-dashoffset: 182.12;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 182.12;
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(1);
+            transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(1);
+    opacity: 1;
+  }
+  90%, 100% {
+    stroke-dasharray: 364.24;
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(2);
+            transform: translate3d(-50%, -50%, 0) rotate(-90deg) scale(2);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes btn-fill-animation {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+@keyframes btn-fill-animation {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+@-webkit-keyframes check-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes check-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="card active">
+      <div class="card-number-bg"></div>
+      <span class="card-number">1</span>
+      <div class="card-text">
+        <strong>The couch</strong>
+        <p>If you want to grow, get outside<br>your comfort zone.</p>
+      </div>
+      <button type="button" class="card-btn">OK</button>
+    </div>
+    <div class="card">
+      <div class="card-number-bg"></div>
+      <span class="card-number">2</span>
+      <div class="card-text">
+        <strong>Failing is learning</strong>
+        <p>Pick yourself up, dust yourself off,<br>and start again.</p>
+      </div>
+      <button type="button" class="card-btn">OK</button>
+    </div>
+    <div class="card">
+      <div class="card-number-bg"></div>
+      <span class="card-number">3</span>
+      <div class="card-text">
+        <strong>Flowers and rainbows</strong>
+        <p>Always be yourself,<br>unless you can be a unicorn.</p>
+      </div>
+      <button type="button" class="card-btn">OK</button>
+    </div>
+  </div>
+
+  <script>
+    let activeIdx = 0
+    const btns = document.querySelectorAll('.card-btn')
+    const cards = document.querySelectorAll('.card')
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        cards[activeIdx].classList.remove('active')
+        cards[activeIdx].classList.add('inactive')
+
+        activeIdx = (activeIdx + 1) % cards.length
+
+        cards[activeIdx].classList.remove('inactive')
+        cards[activeIdx].classList.add('active')
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 29</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="search-area center">
+      <div class="search-wrap">
+        <input type="text" class="search-ip" placeholder="Start typing ...">
+        <button type="button" class="search-btn"><i class="fa fa-search search-icon"></i></button>
+      </div>
+      <div class="search-suggestions"></div>
+    </div>
+  </div>
+
+  <script>
+    const searchInput = document.querySelector('.search-ip')
+    const searchSuggestions = document.querySelector('.search-suggestions')
+
+    let currIdx = -1
+    let currSuggestions = []
+
+    const renderSuggestions = (val) => {
+      currSuggestions = [
+        `<strong>${val}</strong>`,
+        `Veritatis et <strong>${val}</strong>`,
+        `ut aliquid ex <strong>${val}</strong> vero eos`
+      ]
+
+      searchSuggestions.innerHTML = `<ul>
+        ${currSuggestions.map((text, i) => `<li data-index="${i}">${text}</li>`).join('')}
+      </ul>`
+      searchSuggestions.classList.add('active')
+      currIdx = -1
+    }
+
+    const clearSuggestions = () => {
+      searchSuggestions.innerHTML = ''
+      searchSuggestions.classList.remove('active')
+      currIdx = -1
+    }
+
+    searchInput.addEventListener('input', () => {
+      const value = searchInput.value
+      if(value) renderSuggestions(value)
+      else clearSuggestions()
+    })
+
+    searchInput.addEventListener('keydown', (e) => {
+      const items = searchSuggestions.querySelectorAll('li')
+      if(!items.length) return
+
+      if(e.key === 'ArrowDown') {
+        e.preventDefault()
+        currIdx = (currIdx + 1) % items.length
+      } else if(e.key === 'ArrowUp') {
+        e.preventDefault()
+        currIdx = (currIdx - 1 + items.length) % items.length
+      } else if(e.key === 'Enter') {
+        e.preventDefault()
+        if(currIdx >= 0) {
+          searchInput.value = items[currIdx].innerText
+          clearSuggestions()
+        }
+        return
+      }
+
+      items.forEach((item, idx) => {
+        if(idx === currIdx) item.classList.add('on')
+        else item.classList.remove('on')
+      })
+    })
+
+    searchSuggestions.addEventListener('click', (e) => {
+      if(e.target.tagName === 'LI') {
+        searchInput.value = e.target.innerText
+        clearSuggestions()
+      }
+    })
+  </script>
+</body>
+</html>

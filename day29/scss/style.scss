@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+@mixin placeholder-style {
+  color: #a4b9ce;
+}
+
+html, body {
+  font-size: 62.5%;
+}
+
+.frame {
+  width: 40rem; height: 40rem;
+  position: absolute;
+  top: 50%; left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+  border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+	overflow: hidden;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  background-color: #5ca4ea;
+}
+
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.search {
+  &-area {
+    font-size: 0;
+  }
+  &-wrap {
+    box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    width: 26rem; height: 4rem;
+  }
+  &-ip {
+    all: unset;
+    background-color: #fff;
+    color: #4d8dcb;
+    flex: 1;
+    font-size: 1.3rem;
+    font-weight: 600;
+    height: 100%;
+    padding-left: 1.5rem;
+
+    /* 야 기억해 placeholder 속성은 여러개 한번에 쉼표 걸고 쓰면 안먹힌다.. */
+    &::-webkit-input-placeholder {
+      @include placeholder-style;
+    }
+    &::-moz-placeholder {
+      @include placeholder-style;
+    }
+    &:placeholder-shown {
+      @include placeholder-style;
+    }
+  }
+  &-btn {
+    all: unset;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem; height: 100%;
+  }
+  &-icon {
+    color: #5ca4ea;
+    font-size: 2rem;
+  }
+  &-suggestions {
+    background-color: #fff;
+    color: #6e6e6e;
+    font-size: 1.3rem;
+    font-weight: 400;
+    width: 100%;
+    position: absolute;
+    left: 0; top: 100%;
+    z-index: 10;
+
+    &.active {
+      border-top: 1px solid #5ca4ea;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0.9rem 0;
+      margin: 0;
+    }
+
+    li {
+      cursor: pointer;
+      padding: 0.9rem 1.5rem;
+
+      &:hover {
+        color: #4d8dcb;
+      }
+      &.on {
+        background-color: #eef7fd;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+html, body {
+  font-size: 62.5%;
+}
+
+.frame {
+  width: 40rem;
+  height: 40rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+  border-radius: 2px;
+  -webkit-box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  background-color: #16a085;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.line {
+  width: 40rem;
+  height: 6.5rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-dasharray: 50 635;
+  stroke-dashoffset: 735;
+  -webkit-transition: stroke-dashoffset 1s linear;
+  transition: stroke-dashoffset 1s linear;
+  -webkit-animation: line-animation 2.5s linear infinite;
+          animation: line-animation 2.5s linear infinite;
+}
+
+.circle {
+  border: 4px solid #fff;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  -webkit-animation: circle-animation 2.5s ease-out infinite both;
+          animation: circle-animation 2.5s ease-out infinite both;
+}
+
+@-webkit-keyframes line-animation {
+  0% {
+    stroke-dashoffset: 735;
+  }
+  100% {
+    stroke-dashoffset: 50;
+  }
+}
+
+@keyframes line-animation {
+  0% {
+    stroke-dashoffset: 735;
+  }
+  100% {
+    stroke-dashoffset: 50;
+  }
+}
+@-webkit-keyframes circle-animation {
+  0%, 50% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+  }
+  70%, 100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+@keyframes circle-animation {
+  0%, 50% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+  }
+  70%, 100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.8);
+            transform: translate(-50%, -50%) scale(0.8);
+  }
+}

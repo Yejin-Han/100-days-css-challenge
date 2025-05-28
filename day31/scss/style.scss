@@ -1,0 +1,46 @@
+$duration: 60;
+$numberOfDots: 20;
+$oscillations: 40;
+
+html, body {
+  font-size: 62.5%;
+}
+
+.frame {
+  width: 40rem; height: 40rem;
+  position: absolute;
+  top: 50%; left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+  border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+	overflow: hidden;
+
+  background-color: #4c4ba2;
+}
+
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.dot {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 1.2rem; height: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+@for $i from 1 through $numberOfDots {
+  $time: $duration / ($oscillations + $numberOfDots - $i);
+  .dot-#{$i} {
+    animation: dot-animation ($time * 1000) + ms ease-in-out infinite;
+  }
+}
+
+
+@keyframes dot-animation {
+  0%, 100% { transform: translateX(5rem); }
+  50% { transform: translateX(-5rem); }
+}

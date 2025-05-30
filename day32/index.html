@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 32</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="counter center">
+      <button type="button" class="btn btn-minus disabled">
+        <span class="line center"></span>
+      </button>
+      <div class="num">
+        <span class="fade-in">0</span>
+      </div>
+      <button type="button" class="btn btn-plus">
+        <span class="line line-hor center"></span>
+        <span class="line line-ver center"></span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const num = document.querySelector('.num');
+    const minusBtn = document.querySelector('.btn-minus');
+    const plusBtn = document.querySelector('.btn-plus');
+
+    let count = 0;
+
+    const updateNum = (direction) => {
+      count += direction;
+
+      if(count <= 0) {
+        minusBtn.classList.add('disabled');
+      } else {
+        minusBtn.classList.remove('disabled');
+      }
+
+      // 이전 애니메이션 중인 요소 제거
+      num.querySelectorAll('.fade-out.minus, .fade-out.plus').forEach(el => el.remove());
+      
+      const currNum = num.querySelector('.fade-in');
+      if(currNum) {
+        currNum.classList.remove('fade-in');
+        currNum.className = 'fade-out ' + (direction > 0 ? 'plus' : 'minus');
+      }
+
+      const nextNum = document.createElement('span');
+      nextNum.className = 'fade-in ' + (direction > 0 ? 'plus' : 'minus');
+      nextNum.textContent = count;
+      num.appendChild(nextNum);
+    }
+
+    minusBtn.addEventListener('click', () => updateNum(-1));
+    plusBtn.addEventListener('click', () => updateNum(1));
+  </script>
+</body>
+</html>

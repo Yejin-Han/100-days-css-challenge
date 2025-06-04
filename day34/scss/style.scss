@@ -1,0 +1,64 @@
+html, body {
+  font-size: 62.5%;
+}
+
+.frame {
+  width: 40rem; height: 40rem;
+  position: absolute;
+  top: 50%; left: 50%;
+  margin-top: -20rem;
+  margin-left: -20rem;
+  border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+	overflow: hidden;
+
+  background-color: #ea4c89;
+}
+
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.line {
+  background-color: #fff;
+  width: 22.5rem; height: 2px;
+  margin: 1.5rem 0;
+  animation: line-animation 0.6s ease-out both;
+}
+
+.text {
+  stroke: #ea4c89;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 270;
+
+  path {
+    fill: none;
+    animation: text-fill-animation 1.2s ease-in-out both;
+
+    &.a1 {
+      fill: #fff;
+      stroke-width: 6;
+    }
+    &.a2 {
+      stroke-width: 12;
+      animation-duration: 1.7s;
+    }
+    &.a3 {
+      stroke-width: 18;
+      animation-duration: 2.2s;
+    }
+  }
+}
+
+
+
+@keyframes text-fill-animation {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 270; }
+}
+@keyframes line-animation {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}

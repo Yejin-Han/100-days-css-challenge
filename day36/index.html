@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 36</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="dashboard center">
+      <div class="dashboard__header">
+        <div class="dashboard__tabs">
+          <div class="dashboard__tab">
+            <input type="radio" id="tab-1" class="dashboard__tab__ip" name="tab" checked />
+            <label for="tab-1" class="dashboard__tab__lbl"><span class="fa-solid fa-eye"></span></label>
+          </div>
+          <div class="dashboard__tab">
+            <input type="radio" id="tab-2" class="dashboard__tab__ip" name="tab" />
+            <label for="tab-2" class="dashboard__tab__lbl"><span class="fa-solid fa-comments"></span></label>
+          </div>
+          <div class="dashboard__tab">
+            <input type="radio" id="tab-3" class="dashboard__tab__ip" name="tab" />
+            <label for="tab-3" class="dashboard__tab__lbl"><span class="fa-solid fa-bell"></span></label>
+          </div>
+          <div class="dashboard__tab">
+            <input type="radio" id="tab-4" class="dashboard__tab__ip" name="tab" />
+            <label for="tab-4" class="dashboard__tab__lbl"><span class="fa-solid fa-cog"></span></label>
+          </div>
+        </div>
+        <div class="dashboard__search">
+          <button type="button" class="dashboard__search__btn"><span class="fa-solid fa-search"></span></button>
+          <input type="search" id="dashboard-search" class="dashboard__search__ip" />
+        </div>
+      </div>
+      <div class="dashboard__body">
+        <div class="dashboard__board show" data-tab="0">
+          <h1 class="dashboard__tit">Dashboard</h1>
+          <div class="dashboard__content">
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+            <p>
+              <span class="line line-6"></span>
+              <span class="line line-7"></span>
+              <span class="line line-8"></span>
+              <span class="line line-9"></span>
+              <span class="line line-0"></span>
+            </p>
+          </div>
+        </div>
+        <div class="dashboard__board" data-tab="1">
+          <h1 class="dashboard__tit">Comments</h1>
+          <div class="dashboard__content">
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+          </div>
+        </div>
+        <div class="dashboard__board" data-tab="2">
+          <h1 class="dashboard__tit">Notifications</h1>
+          <div class="dashboard__content">
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+          </div>
+        </div>
+        <div class="dashboard__board" data-tab="3">
+          <h1 class="dashboard__tit">Settings</h1>
+          <div class="dashboard__content">
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+            <p>
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+              <span class="line line-5"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

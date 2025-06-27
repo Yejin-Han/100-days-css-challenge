@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 41</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="center">
+      <div class="alert">
+        <div class="content">
+          <div class="img"><img src="https://100dayscss.com/codepen/alert.png" /></div>
+          <div class="txt">
+            <h2>Oh snap!</h2>
+            <p>An error has occured while creating an error report.</p>
+          </div>
+        </div>
+        <button type="button" class="btn-dismiss">Dismiss</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-dismiss').addEventListener('click', () => {
+      document.querySelector('.alert').classList.add('hide')
+    })
+  </script>
+</body>
+</html>

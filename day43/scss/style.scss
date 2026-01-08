@@ -1,0 +1,78 @@
+html, body {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+.frame {
+  max-width: 40rem; max-height: 40rem;
+  width: 100vw; height: 100vw;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
+	overflow: hidden;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  background-color: #404556;
+}
+
+.lightbulb {
+  width: 19%; height: 33%;
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top {
+
+  svg {
+    cursor: pointer;
+    fill: #fff35c;
+    transition: fill 0.5s ease-in-out;
+    position: relative;
+    z-index: 2;
+  }
+
+  .glow {
+    aspect-ratio: 1 / 1;
+    background-color: #fff35c;
+    border-radius: 50%;
+    box-shadow: 0 0 min(12.5vw, 50px) min(2.5vw, 10px) #fff35c;
+    width: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      fill: #8c8f99;
+    }
+
+    .glow {
+      opacity: 0;
+    }
+  }
+}
+
+.bot {
+  width: 42.1%;
+  margin: 7% auto 0;
+
+  svg {
+    fill: #e5e5e5;
+  }
+}
